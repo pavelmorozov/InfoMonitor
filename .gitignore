@@ -1,0 +1,10 @@
+.settings
+target
+.classpath
+.project
+.springBeans
+
+bin
+
+
+src/main/webapp/META-INF
