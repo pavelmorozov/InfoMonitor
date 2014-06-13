@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.InheritanceType;
 
@@ -19,9 +21,11 @@ public abstract class Flight {
 	private Long id;
 	@Column(unique = true, nullable = false, insertable=false, updatable=false)
 	private String flightNumber;
-	@Column
+	
+	@ManyToOne()
+	@JoinColumn(name = "flightCompany")
 	private Company flightCompany;
-
+	
 	public Flight() {}	
 	
 	public Flight(String flightNumber, Company flightCompany) {
