@@ -19,7 +19,7 @@ public abstract class Flight {
 	@Column(unique = true, nullable = false, insertable=false, updatable=false)
 	@GeneratedValue
 	private Long id;
-	@Column(unique = true, nullable = false, insertable=false, updatable=false)
+	@Column(unique = true, nullable = false)
 	private String flightNumber;
 	
 	@ManyToOne()
