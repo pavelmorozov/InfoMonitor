@@ -50,7 +50,7 @@ public class RegularFlightDAOTest {
 		//	First check database have no test record 
 		String query = "from RegularFlight where flightNumber = '"
 				+FLIGHT_NUMBER+"'";
-		@SuppressWarnings("unchecked")
+		
 		List <RegularFlight> regularFlightList = sessionFactory.
 				getCurrentSession().createQuery(query).list();
 		assertEquals("First check database have no test record", regularFlightList.isEmpty(),true);
@@ -88,7 +88,15 @@ public class RegularFlightDAOTest {
 	    		regularFlight.getFlightDestination().getAirPort());
 		
 		// Get record
-		assertNotNull(regularFlightDAO.get(regularFlight.getId()));
+	    assertNotNull(regularFlightDAO.get(regularFlight.getId()));
+		
+		// Search record
+	    
+	    List<RegularFlight> hs = regularFlightDAO.search(destination,null,null);
+	    
+	    //assertEquals("Check for search",regularFlightDAO.search(destination,null,null).isEmpty(),false);				
+	    //assertEquals("Check for search",regularFlightDAO.search(null,FLIGHT_NUMBER,null).isEmpty(),false);
+	    //assertEquals("Check for search",regularFlightDAO.search(null,null,company).isEmpty(),false);
 		
 		// Remove record 
 		regularFlightDAO.remove(regularFlight);
