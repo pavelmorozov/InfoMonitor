@@ -15,23 +15,24 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-
 public class RegularFlight extends Flight {
 	
 	@ManyToOne()
 	@JoinColumn(name = "flightDestination")
 	private Destination flightDestination;
 	
-	
-	
-	
 	@OneToMany()
 	private Set<CodeShare> codeShare = 
 	    	new HashSet<CodeShare>();
-	
-	
-	
-	
+
+	public Set<CodeShare> getCodeShare() {
+		return codeShare;
+	}
+
+	public void setCodeShare(Set<CodeShare> codeShare) {
+		this.codeShare = codeShare;
+	}
+
 	public RegularFlight(){};
 
 	public RegularFlight(Destination flightDestination,	String flightNumber, 

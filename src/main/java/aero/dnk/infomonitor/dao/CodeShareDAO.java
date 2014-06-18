@@ -15,7 +15,6 @@ public interface CodeShareDAO {
 	CodeShare get(Long id) throws DataAccessException;
 	public List <CodeShare> list()
 		throws DataAccessException;
-	public List <CodeShare> search(Destination destination,
-			String flightNumber, Company company)
+	public List <CodeShare> search(String flightNumber, Company company)
 		throws DataAccessException;	
 }

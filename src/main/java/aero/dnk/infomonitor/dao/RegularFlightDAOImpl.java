@@ -23,7 +23,6 @@ public class RegularFlightDAOImpl implements RegularFlightDAO {
 	@Override
 	public void save(RegularFlight regularFlight) throws DataAccessException {
 		sessionFactory.getCurrentSession().save(regularFlight);
-
 	}
 
 	@Override
@@ -31,7 +30,6 @@ public class RegularFlightDAOImpl implements RegularFlightDAO {
 		if (null != regularFlight) {
 			sessionFactory.getCurrentSession().delete(regularFlight);
 		}
-
 	}
 
 	@Override
@@ -59,13 +57,13 @@ public class RegularFlightDAOImpl implements RegularFlightDAO {
 		createCriteria(RegularFlight.class);
 		
 		if (destination!= null) {
-			criteria.add(Restrictions.eq("destination", destination));
+			criteria.add(Restrictions.eq("flightDestination", destination));
 		}
 		if (flightNumber!= null) {
 			criteria.add(Restrictions.like("flightNumber", flightNumber));
 		};
 		if (company!= null) {
-			criteria.add(Restrictions.eq("company", company));
+			criteria.add(Restrictions.eq("flightCompany", company));
 		};
 
 		@SuppressWarnings("unchecked")

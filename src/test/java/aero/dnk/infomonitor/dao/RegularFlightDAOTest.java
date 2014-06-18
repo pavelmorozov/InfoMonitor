@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.dao;
+﻿package aero.dnk.infomonitor.dao;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -29,9 +29,8 @@ public class RegularFlightDAOTest {
 	private static final String FLIGHT_NUMBER = "TestFlight_777";
 	private static final String COMPANY_NAME = "Test company";
 	private static final String DESTINATION_LANGUAGE_1 = "Dnipropetrovsk";
-	private static final String DESTINATION_LANGUAGE_2 = "Дніпропетровськ";
-	private static final String DESTINATION_LANGUAGE_3 = "Днепропетровск";
-	private static final int TRANSLATE_NUMBER = 3;
+	private static final String DESTINATION_LANGUAGE_2 = "Днепропетровск";
+	private static final String DESTINATION_LANGUAGE_3 = "Дніпропетровськ";
 	
 	@Autowired
 	private RegularFlightDAO regularFlightDAO;
@@ -89,14 +88,14 @@ public class RegularFlightDAOTest {
 		
 		// Get record
 	    assertNotNull(regularFlightDAO.get(regularFlight.getId()));
+	    
+	    //TODO List record
 		
 		// Search record
-	    
-	    List<RegularFlight> hs = regularFlightDAO.search(destination,null,null);
-	    
-	    //assertEquals("Check for search",regularFlightDAO.search(destination,null,null).isEmpty(),false);				
-	    //assertEquals("Check for search",regularFlightDAO.search(null,FLIGHT_NUMBER,null).isEmpty(),false);
-	    //assertEquals("Check for search",regularFlightDAO.search(null,null,company).isEmpty(),false);
+	    assertEquals("Check for search",regularFlightDAO.search(destination,null,null).isEmpty(),false);				
+	    assertEquals("Check for search",regularFlightDAO.search(null,FLIGHT_NUMBER,null).isEmpty(),false);
+	    assertEquals("Check for search",regularFlightDAO.search(null,null,company).isEmpty(),false);
+	    assertEquals("Check for search",regularFlightDAO.search(destination,FLIGHT_NUMBER,company).isEmpty(),false);
 		
 		// Remove record 
 		regularFlightDAO.remove(regularFlight);
