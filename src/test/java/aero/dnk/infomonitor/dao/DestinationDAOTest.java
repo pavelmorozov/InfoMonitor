@@ -16,16 +16,17 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import aero.dnk.infomonitor.domain.Destination;
-import aero.dnk.infomonitor.domain.DestinationMultiLanguage;
+import aero.dnk.infomonitor.dao.flight.DestinationDAO;
+import aero.dnk.infomonitor.domain.flight.Destination;
+import aero.dnk.infomonitor.domain.flight.DestinationMultiLanguage;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/META-INF/spring/root-context.xml")
 public class DestinationDAOTest {
 	private static final String DESTINATION_NAME = "DNK";
 	private static final String DESTINATION_LANGUAGE_1 = "Dnipropetrovsk";
-	private static final String DESTINATION_LANGUAGE_2 = "Днепропетровск";
-	private static final String DESTINATION_LANGUAGE_3 = "Дніпропетровськ";
+	private static final String DESTINATION_LANGUAGE_2 = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
+	private static final String DESTINATION_LANGUAGE_3 = "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ";
 	private static final int TRANSLATE_NUMBER = 3;
 	
 	@Autowired

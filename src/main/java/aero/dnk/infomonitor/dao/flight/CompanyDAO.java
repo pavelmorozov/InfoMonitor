@@ -1,7 +1,8 @@
-package aero.dnk.infomonitor.dao;
+package aero.dnk.infomonitor.dao.flight;
 
 import org.springframework.dao.DataAccessException;
-import aero.dnk.infomonitor.domain.Company;
+
+import aero.dnk.infomonitor.domain.flight.Company;
 
 public interface CompanyDAO {
 	void saveCompany(Company company) throws DataAccessException;

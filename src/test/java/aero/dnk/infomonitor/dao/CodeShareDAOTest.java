@@ -16,11 +16,15 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import aero.dnk.infomonitor.domain.CodeShare;
-import aero.dnk.infomonitor.domain.Company;
-import aero.dnk.infomonitor.domain.Destination;
-import aero.dnk.infomonitor.domain.DestinationMultiLanguage;
-import aero.dnk.infomonitor.domain.RegularFlight;
+import aero.dnk.infomonitor.dao.flight.CodeShareDAO;
+import aero.dnk.infomonitor.dao.flight.CompanyDAO;
+import aero.dnk.infomonitor.dao.flight.DestinationDAO;
+import aero.dnk.infomonitor.dao.flight.RegularFlightDAO;
+import aero.dnk.infomonitor.domain.flight.CodeShare;
+import aero.dnk.infomonitor.domain.flight.Company;
+import aero.dnk.infomonitor.domain.flight.Destination;
+import aero.dnk.infomonitor.domain.flight.DestinationMultiLanguage;
+import aero.dnk.infomonitor.domain.flight.RegularFlight;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/META-INF/spring/root-context.xml")

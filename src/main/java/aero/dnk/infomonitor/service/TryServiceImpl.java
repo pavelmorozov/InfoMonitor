@@ -4,8 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import aero.dnk.infomonitor.dao.CompanyDAO;
-import aero.dnk.infomonitor.domain.Company;
+import aero.dnk.infomonitor.dao.flight.CompanyDAO;
+import aero.dnk.infomonitor.domain.flight.Company;
 
 @Service
 

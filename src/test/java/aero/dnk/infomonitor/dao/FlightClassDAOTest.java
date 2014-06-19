@@ -16,7 +16,8 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
-import aero.dnk.infomonitor.domain.FlightClass;
+import aero.dnk.infomonitor.dao.monitor.FlightClassDAO;
+import aero.dnk.infomonitor.domain.monitor.FlightClass;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/META-INF/spring/root-context.xml")

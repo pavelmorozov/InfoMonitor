@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.dao;
+package aero.dnk.infomonitor.dao.flight;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import aero.dnk.infomonitor.domain.Company;
+import aero.dnk.infomonitor.domain.flight.Company;
 
 @Repository
 public class CompanyDAOImpl implements CompanyDAO {

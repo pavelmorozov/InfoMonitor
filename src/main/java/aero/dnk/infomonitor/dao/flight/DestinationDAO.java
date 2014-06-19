@@ -1,7 +1,8 @@
-package aero.dnk.infomonitor.dao;
+package aero.dnk.infomonitor.dao.flight;
 
 import org.springframework.dao.DataAccessException;
-import aero.dnk.infomonitor.domain.Destination;
+
+import aero.dnk.infomonitor.domain.flight.Destination;
 
 public interface DestinationDAO {
 	Destination getDestination(Long id) throws DataAccessException;

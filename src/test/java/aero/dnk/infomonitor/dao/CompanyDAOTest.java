@@ -1,8 +1,12 @@
 package aero.dnk.infomonitor.dao;
 
 import java.util.List;
+
+import aero.dnk.infomonitor.dao.flight.CompanyDAO;
 import aero.dnk.infomonitor.domain.*;
+import aero.dnk.infomonitor.domain.flight.Company;
 import static org.junit.Assert.*;
+
 import org.hibernate.SessionFactory;
 import org.junit.Test;
 import org.junit.runner.RunWith;

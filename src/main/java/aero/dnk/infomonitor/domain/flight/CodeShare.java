@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.domain;
+package aero.dnk.infomonitor.domain.flight;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;

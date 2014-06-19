@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.dao;
+package aero.dnk.infomonitor.dao.monitor;
 
 import java.util.List;
 
@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Repository;
 
-import aero.dnk.infomonitor.domain.FlightClass;
+import aero.dnk.infomonitor.domain.monitor.FlightClass;
 
 @Repository
 public class FlightClassDAOImpl implements FlightClassDAO {

@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.domain;
+package aero.dnk.infomonitor.domain.flight;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,6 +19,7 @@ public abstract class Flight {
 	@Column(unique = true, nullable = false, insertable=false, updatable=false)
 	@GeneratedValue
 	private Long id;
+	
 	@Column(unique = true, nullable = false)
 	private String flightNumber;
 	
