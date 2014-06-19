@@ -92,8 +92,9 @@ public class RegularFlightDAOTest {
 		// Get record
 	    assertNotNull(regularFlightDAO.get(regularFlight.getId()));
 	    
-	    //TODO List record
-		
+	    //List record
+	    assertEquals(regularFlightDAO.list().isEmpty(),false);	    
+	    
 		// Search record
 	    assertEquals("Check for search",regularFlightDAO.search(destination,null,null).isEmpty(),false);				
 	    assertEquals("Check for search",regularFlightDAO.search(null,FLIGHT_NUMBER,null).isEmpty(),false);

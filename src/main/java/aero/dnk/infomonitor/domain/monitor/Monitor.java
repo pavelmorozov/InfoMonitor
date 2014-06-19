@@ -3,6 +3,7 @@ package aero.dnk.infomonitor.domain.monitor;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -11,7 +12,8 @@ public class Monitor {
 	@Id
 	String MonitorName;
 	
-	@Column
+	@OneToOne()
+	//@ForeignKey(name="email")
 	MonitorInfo monitorInfo;
 
 	public Monitor() {
