@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.controller;
+﻿package aero.dnk.infomonitor.controller;
 
 import java.text.DateFormat;
 import java.util.Date;

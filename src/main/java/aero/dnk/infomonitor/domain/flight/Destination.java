@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.domain.flight;
+﻿package aero.dnk.infomonitor.domain.flight;
 
 import java.util.HashSet;
 //import java.util.List;

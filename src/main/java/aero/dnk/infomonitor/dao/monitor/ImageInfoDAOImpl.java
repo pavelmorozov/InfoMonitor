@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.dao.monitor;
+﻿package aero.dnk.infomonitor.dao.monitor;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.dao.flight;
+﻿package aero.dnk.infomonitor.dao.flight;
 
 import org.springframework.dao.DataAccessException;
 

@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.dao.flight;
+﻿package aero.dnk.infomonitor.dao.flight;
 
 import java.util.List;
 

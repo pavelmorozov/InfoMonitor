@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.domain.monitor;
+﻿package aero.dnk.infomonitor.domain.monitor;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

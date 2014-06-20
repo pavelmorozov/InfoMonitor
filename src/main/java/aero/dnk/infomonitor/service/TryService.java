@@ -1,4 +1,4 @@
-package aero.dnk.infomonitor.service;
+﻿package aero.dnk.infomonitor.service;
 
 public interface TryService {
 	void tryServiceMethod();
