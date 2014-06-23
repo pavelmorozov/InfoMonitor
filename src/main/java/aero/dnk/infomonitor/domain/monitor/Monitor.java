@@ -10,26 +10,25 @@ import javax.persistence.Table;
 @Table
 public class Monitor {
 	@Id
-	String MonitorName;
+	String monitorName;
 	
 	@OneToOne()
-	//@ForeignKey(name="email")
 	MonitorInfo monitorInfo;
 
 	public Monitor() {
 	}
 	
 	public Monitor(String monitorName, MonitorInfo monitorInfo) {
-		MonitorName = monitorName;
+		monitorName = monitorName;
 		this.monitorInfo = monitorInfo;
 	}
 
 	public String getMonitorName() {
-		return MonitorName;
+		return monitorName;
 	}
 
 	public void setMonitorName(String monitorName) {
-		MonitorName = monitorName;
+		monitorName = monitorName;
 	}
 
 	public MonitorInfo getMonitorInfo() {

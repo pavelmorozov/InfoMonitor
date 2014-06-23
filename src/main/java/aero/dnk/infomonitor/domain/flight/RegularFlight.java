@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
@@ -21,7 +22,7 @@ public class RegularFlight extends Flight {
 	@JoinColumn(name = "flightDestination")
 	private Destination flightDestination;
 	
-	@OneToMany()
+	@OneToMany(fetch = FetchType.EAGER)
 	private Set<CodeShare> codeShare = 
 	    	new HashSet<CodeShare>();
 

@@ -26,9 +26,8 @@ public class Destination {
 	
 	@Column
 	private String airPort;
-	
-	//@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-	@OneToMany(cascade=CascadeType.ALL, mappedBy = "destination")
+
+	@OneToMany(cascade=CascadeType.ALL, mappedBy = "destination", fetch = FetchType.EAGER)
 	private Set<DestinationMultiLanguage> destinationMultiLanguage = 
     	new HashSet<DestinationMultiLanguage>();	
 	
