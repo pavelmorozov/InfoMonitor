@@ -7,7 +7,6 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.beanutils.BeanUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,9 +40,6 @@ public class MonitorServiceImpl implements MonitorService {
 	public ModelAndView show(String monitorName){
 		Monitor monitor = monitorDAO.get(monitorName);
 		MonitorInfo monitorInfo = monitor.getMonitorInfo();
-		
-//		System.out.println("service " + monitorInfo.getId());
-//		System.out.println("service " + monitorInfo.getClass().getSimpleName());
 		
 		String viewName;
 		Map<String, Object> viewInfo = new HashMap<String, Object>();
