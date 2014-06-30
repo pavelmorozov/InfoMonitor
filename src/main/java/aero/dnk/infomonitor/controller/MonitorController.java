@@ -40,6 +40,7 @@ public class MonitorController{
 		logger.info("Processing request from: "+
 				request.getRemoteAddr()+
 				" to monitor: "+ monitorName);
-		return monitorService.show(monitorName);
+		//return monitorService.show(monitorName);
+		return monitorService.showAJAX(monitorName);		
 	}	
 }

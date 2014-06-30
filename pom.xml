@@ -16,6 +16,8 @@
 		<tomcat-dbcp.version>7.0.42</tomcat-dbcp.version>
 		<javassist.version>3.18.1-GA</javassist.version>
 		<hibernate.version>4.3.5.Final</hibernate.version>
+	    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>		
 	</properties>
 	<dependencies>
 		<!-- Spring -->

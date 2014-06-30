@@ -47,14 +47,39 @@ public class MonitorServiceImpl implements MonitorService {
 			viewName = monitorInfo.getClass().getSimpleName();
 			viewInfo.put("monitorInfo", monitorInfo);
 			logger.info("Service MonitorService show() choose view name: "+
-					viewName);		
-		}
-		else
-		{
+					viewName);
+		}else{
 			viewName = "Error";
 			logger.info("Error: "+ monitorName +" Monitor info not found");			
 		}
 		
 		return new ModelAndView(viewName, viewInfo);
 	}
+	
+	@Override
+	public ModelAndView showAJAX(String monitorName){
+//		Monitor monitor = monitorDAO.get(monitorName);
+//		MonitorInfo monitorInfo = monitor.getMonitorInfo();
+		
+		String viewName;
+		viewName = "MonitorInfo";
+		Map<String, Object> viewInfo = new HashMap<String, Object>();
+//		if (monitorInfo!=null) {
+//			//viewName = monitorInfo.getClass().getSimpleName();
+//			viewInfo.put("monitorInfo", monitorInfo);
+//			logger.info("Service MonitorService show() choose view name: "+
+//					viewName);
+//		}else{
+//			//viewName = "Error";
+//			logger.info("Error: "+ monitorName +" Monitor info not found");			
+//		}
+		
+		viewInfo.put("monitor", monitorName);
+		
+		System.out.println(viewInfo);
+		System.out.println(monitorName);
+		
+		return new ModelAndView(viewName, viewInfo);
+	}	
+	
 }
