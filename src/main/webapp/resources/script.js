@@ -1,16 +1,17 @@
 $(document).ready(function() {
 	$('#test').submit(function(event) {
-		AJAX();
+		console.log("1000");
+		//AJAX();
 		event.preventDefault();
 	});
 });
 
-function AJAX() {
-	var monitor = $('#monitor').data(val());
-	var url = "show?monitorName="+monitor; 
-	
-	console.log(url);
-	
+//function AJAX() {
+//	var monitor = $('#monitor').data(val());
+//	var url = "show?monitorName="+monitor; 
+//	
+//	console.log(url);
+//	
 //	a = $.ajax({
 //		url     : $("#fillUserAccount").attr("action"),
 //		dataType: 'json',
@@ -26,4 +27,4 @@ function AJAX() {
 //			alert('error: '+e);
 //		}
 //	});
-};
+//};

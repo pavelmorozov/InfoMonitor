@@ -7,10 +7,13 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<title>MonitorInfo</title>
-		<link href="${contextPath}/resources/style.css" type="text/css" rel="stylesheet">		
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		
+				
+		<script src="${contextPath}/resources/jquery-1.11.1.min.js"></script>		
+		
 		<script src="${contextPath}/resources/script.js"></script>
 		
+		<link href="${contextPath}/resources/style.css" type="text/css" rel="stylesheet">
 	</head>
 <body>
 	${contextPath}
