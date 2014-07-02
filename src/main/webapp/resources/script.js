@@ -20,24 +20,26 @@ function AJAX() {
 	
 	var pageContent = "";
 		
-	a = $.ajax({
-		url     : url,
-		dataType: 'html',
-		success : function(response){
-			if (response != pageContent){
-				console.log('Data changed, update now!');
-				$('#monitorInfo').html(response);
-				pageContent = response;
-			}else{
-				//no update needed
-				console.log('Data not changed, no update.');
+	void function(pageContent) {
+		a = $.ajax({
+			url     : url,
+			dataType: 'html',
+			success : function(response){
+				if (response.replace(/(\r\n|\n|\r)/gm,"") != $('#monitorInfo').html().replace(/(\r\n|\n|\r)/gm,"")){
+					console.log('Data changed, update now!');
+					$('#monitorInfo').html(response);
+					pageContent = response;
+				}else{
+					//no update needed
+					console.log('Data not changed, no update.');
+				}
+			},
+			error   : function (response,status,e){
+				console.log('error: '+e);
+				console.log('response: '+response);
+				console.log('status: '+status);
 			}
-		},
-		error   : function (response,status,e){
-			console.log('error: '+e);
-			console.log('response: '+response);
-			console.log('status: '+status);
-		}
-	});
-	
+		});
+	}
 }
+

@@ -5,6 +5,8 @@ import java.util.HashSet;
 
 
 import java.util.Set;
+import java.util.SortedSet;
+import java.util.TreeSet;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,7 +16,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
+
+//import org.hibernate.annotations.OrderBy;
 
 @Entity
 @Table
@@ -28,11 +33,13 @@ public class Destination {
 	private String airPort;
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "destination", fetch = FetchType.EAGER)
-	private Set<DestinationMultiLanguage> destinationMultiLanguage = 
-    	new HashSet<DestinationMultiLanguage>();	
+	@OrderBy("airPortMultilanguage")
+
+	private SortedSet<DestinationMultiLanguage> destinationMultiLanguage = 
+	new TreeSet<DestinationMultiLanguage>();
 	
 	public Destination(String airPort
-			,  Set<DestinationMultiLanguage> destinationMultiLanguage
+			,  SortedSet<DestinationMultiLanguage> destinationMultiLanguage
 			) {
 		this.airPort = airPort;
 		this.destinationMultiLanguage = destinationMultiLanguage;		
@@ -41,12 +48,12 @@ public class Destination {
 	public Destination() {
 	}
 	
-	public Set<DestinationMultiLanguage> getDestinationMultiLanguage() {
+	public SortedSet<DestinationMultiLanguage> getDestinationMultiLanguage() {
 		return destinationMultiLanguage;
 	}
 
 	public void setDestinationMultiLanguage(
-			Set<DestinationMultiLanguage> destinationMultiLanguage) {
+			SortedSet<DestinationMultiLanguage> destinationMultiLanguage) {
 		this.destinationMultiLanguage = destinationMultiLanguage;
 	}
 
