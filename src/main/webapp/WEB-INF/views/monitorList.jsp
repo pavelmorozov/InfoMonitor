@@ -16,7 +16,7 @@
 				<c:forEach items="${monitorList}" var="listElement">
 					<tr>
 						<td class = "datacell">
-							<a href="show?monitorName=${listElement.monitorName}">
+							<a href="showAJAX?monitorName=${listElement.monitorName}">
 								${listElement.monitorName}
 							</a>
 						</td>							

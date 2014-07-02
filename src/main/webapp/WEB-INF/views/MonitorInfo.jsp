@@ -19,8 +19,6 @@
 	${contextPath}
 	<div id="monitor">${monitor}</div>
 	<a id="test" href="">--- === TEST AJAX === ---</a>
-
-
-	
+	<div id="monitorInfo"></div>
 </body>
 </html>

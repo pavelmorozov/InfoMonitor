@@ -6,11 +6,38 @@ $(document).ready(function() {
         AJAX();
         event_test.preventDefault();
 	});
+    
+    var autoRefresh = setInterval(function(){
+    		console.log('autoRefresh, AJAX()');
+    		AJAX();
+    	},1000)
 });
 
 function AJAX() {
 	var monitor = $('#monitor').text();
 	var url = "show?monitorName="+monitor;
-	console.log("AJAX()");
-	console.log(url);
+	console.log("AJAX() "+url);
+	
+	var pageContent = "";
+		
+	a = $.ajax({
+		url     : url,
+		dataType: 'html',
+		success : function(response){
+			if (response != pageContent){
+				console.log('Data changed, update now!');
+				$('#monitorInfo').html(response);
+				pageContent = response;
+			}else{
+				//no update needed
+				console.log('Data not changed, no update.');
+			}
+		},
+		error   : function (response,status,e){
+			console.log('error: '+e);
+			console.log('response: '+response);
+			console.log('status: '+status);
+		}
+	});
+	
 }

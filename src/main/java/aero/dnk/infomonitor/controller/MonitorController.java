@@ -33,10 +33,21 @@ public class MonitorController{
 	}
 
 	/**
-	 * Takes from monitor its name and pass to service.
+	 * Takes from monitor its name and pass to service. Returns 
+	 * html view for MonitorInfo 
 	 */
 	@RequestMapping(value = "/monitor/show", method = RequestMethod.GET)
 	public ModelAndView monitorShow(@RequestParam("monitorName") String monitorName, HttpServletRequest request) {
+		logger.info("Processing AJAX request from: "+
+				request.getRemoteAddr()+
+				" to monitor: "+ monitorName);
+		return monitorService.show(monitorName);
+	}	
+	/**
+	 * Takes from monitor its name and pass to service. Returns page with ajax auto refresh code
+	 */
+	@RequestMapping(value = "/monitor/showAJAX", method = RequestMethod.GET)
+	public ModelAndView monitorShowAJAX(@RequestParam("monitorName") String monitorName, HttpServletRequest request) {
 		logger.info("Processing request from: "+
 				request.getRemoteAddr()+
 				" to monitor: "+ monitorName);
