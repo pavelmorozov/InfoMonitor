@@ -17,10 +17,6 @@ function AJAX() {
 	var monitor = $('#monitor').text();
 	var url = "show?monitorName="+monitor;
 	console.log("AJAX() "+url);
-	
-	
-		
-
 		a = $.ajax({
 			url     : url,
 			dataType: 'html',
@@ -43,7 +39,6 @@ function AJAX() {
 				console.log('status: '+status);
 			}
 		});
-	
 }
 
 var pageContent = "";

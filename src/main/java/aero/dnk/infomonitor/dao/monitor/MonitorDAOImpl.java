@@ -39,7 +39,7 @@ public class MonitorDAOImpl implements MonitorDAO {
 	public List<Monitor> list() throws DataAccessException {
 		@SuppressWarnings("unchecked")
 		List <Monitor> list = (List <Monitor>) sessionFactory.getCurrentSession().
-				createQuery("from Monitor").list();
+				createQuery("from Monitor order by monitorName").list();
 				return list;
 	}
 
