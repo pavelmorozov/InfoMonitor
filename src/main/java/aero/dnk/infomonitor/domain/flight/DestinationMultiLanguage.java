@@ -13,7 +13,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class DestinationMultiLanguage implements Comparable {
+//public class DestinationMultiLanguage implements Comparable{
+public class DestinationMultiLanguage{
 	@Id
 	@GeneratedValue
 	@Column(unique = true, nullable = false, insertable=false, updatable=false)
@@ -61,14 +62,14 @@ public class DestinationMultiLanguage implements Comparable {
 		this.destination = destination;
 	}
 
-	@Override
-	public int compareTo(Object o) {
-	    //FoodItems temp = (FoodItems) o;
-	    if (this.airPortMultiLanguage.compareTo(airPortMultiLanguage)>0)
-	        return 1;
-	    else if (this.airPortMultiLanguage.compareTo(airPortMultiLanguage)==0)
-	        return 0;
-	    else 
-	        return -1;
-	}
+//	@Override
+//	public int compareTo(Object o) {
+//		String oAirPortMultiLanguage = ((DestinationMultiLanguage)o).getAirPortMultiLanguage();
+//	    if (this.airPortMultiLanguage.compareTo(oAirPortMultiLanguage )>0)
+//	        return 1;
+//	    else if (this.airPortMultiLanguage.compareTo(oAirPortMultiLanguage )==0)
+//	        return 0;
+//	    else 
+//	        return -1;
+//	}
 }

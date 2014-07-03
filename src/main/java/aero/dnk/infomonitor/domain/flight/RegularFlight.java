@@ -11,6 +11,7 @@ import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 
@@ -23,6 +24,7 @@ public class RegularFlight extends Flight {
 	private Destination flightDestination;
 	
 	@OneToMany(fetch = FetchType.EAGER)
+	@OrderBy("flightCompany")
 	private Set<CodeShare> codeShare = 
 	    	new HashSet<CodeShare>();
 

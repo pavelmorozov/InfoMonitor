@@ -7,10 +7,10 @@ $(document).ready(function() {
         event_test.preventDefault();
 	});
     
-    var autoRefresh = setInterval(function(){
-    		console.log('autoRefresh, AJAX()');
-    		AJAX();
-    	},1000)
+//    var autoRefresh = setInterval(function(){
+//    		console.log('autoRefresh, AJAX()');
+//    		AJAX();
+//    	},1000)
 });
 
 function AJAX() {
@@ -18,14 +18,14 @@ function AJAX() {
 	var url = "show?monitorName="+monitor;
 	console.log("AJAX() "+url);
 	
-	var pageContent = "";
+	
 		
-	void function(pageContent) {
+
 		a = $.ajax({
 			url     : url,
 			dataType: 'html',
 			success : function(response){
-				if (response.replace(/(\r\n|\n|\r)/gm,"") != $('#monitorInfo').html().replace(/(\r\n|\n|\r)/gm,"")){
+				if (response != pageContent){
 					console.log('Data changed, update now!');
 					$('#monitorInfo').html(response);
 					pageContent = response;
@@ -40,6 +40,7 @@ function AJAX() {
 				console.log('status: '+status);
 			}
 		});
-	}
+	
 }
 
+var pageContent = "";

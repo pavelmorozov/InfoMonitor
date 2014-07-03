@@ -33,10 +33,14 @@ public class Destination {
 	private String airPort;
 
 	@OneToMany(cascade=CascadeType.ALL, mappedBy = "destination", fetch = FetchType.EAGER)
-	@OrderBy("airPortMultilanguage")
+	@OrderBy("airPortMultiLanguage")
 
-	private SortedSet<DestinationMultiLanguage> destinationMultiLanguage = 
-	new TreeSet<DestinationMultiLanguage>();
+	//private SortedSet<DestinationMultiLanguage> destinationMultiLanguage = 
+	//new TreeSet<DestinationMultiLanguage>();
+
+	private Set<DestinationMultiLanguage> destinationMultiLanguage = 
+	new HashSet<DestinationMultiLanguage>();
+	
 	
 	public Destination(String airPort
 			,  SortedSet<DestinationMultiLanguage> destinationMultiLanguage
@@ -48,12 +52,12 @@ public class Destination {
 	public Destination() {
 	}
 	
-	public SortedSet<DestinationMultiLanguage> getDestinationMultiLanguage() {
+	public Set<DestinationMultiLanguage> getDestinationMultiLanguage() {
 		return destinationMultiLanguage;
 	}
 
 	public void setDestinationMultiLanguage(
-			SortedSet<DestinationMultiLanguage> destinationMultiLanguage) {
+			Set<DestinationMultiLanguage> destinationMultiLanguage) {
 		this.destinationMultiLanguage = destinationMultiLanguage;
 	}
 
