@@ -7,10 +7,10 @@ $(document).ready(function() {
         event_test.preventDefault();
 	});
     
-//    var autoRefresh = setInterval(function(){
-//    		console.log('autoRefresh, AJAX()');
-//    		AJAX();
-//    	},1000)
+    var autoRefresh = setInterval(function(){
+    		console.log('autoRefresh, AJAX()');
+    		AJAX();
+    	},1000)
 });
 
 function AJAX() {
@@ -28,6 +28,9 @@ function AJAX() {
 				if (response != pageContent){
 					console.log('Data changed, update now!');
 					$('#monitorInfo').html(response);
+					$('.carousel').carousel({
+						interval: 10000
+					});
 					pageContent = response;
 				}else{
 					//no update needed

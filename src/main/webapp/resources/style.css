@@ -1,49 +1,70 @@
-#monitor{
+html, body {
+	overflow:hidden;
+	border-bottom: 1px solid #dddddd;
+	color:#555555;
+	height:100%;
+}
+
+#monitor, #test{
+	display:none;
+}
+
+#test{
 /*	display:none;*/
-	color: #773333;
 }
 
-#fillUserAccountPopUpHead{
-  background: #DDDDDD;
+#logo_top, #logo_top_1, #logo_top_2 {
+	margin:30px 0 0 0;
+	height:180px;
 }
 
-#fillUserAccountPopUpHead a{
-    position: absolute;
-    right: 8px;	
+.cs_logo{
+	height:112px;
+	width:600px;
+	margin: 0 20px; 
 }
 
-.formError{
-	color: #FF7777;
+#flight_number, #flight_number_1, #flight_number_2{
+	font:bold 240px/110% Times;
+	text-align: center;
 }
 
-.userName{
-	display:block;
+#destination, #destination_1, #destination_2{
+	font:bold 170px/100% Times;
+	text-align: center;
 }
 
-.search{
-	margin: 20px 0;
+#class{
+	font:italic bold 120px/100% Times;
+	text-align: center;	
+	margin:0 0 60px 0;
 }
 
-.logout{
-	margin: 20px 0;
+.cs{
+	float:left;
+	width:640px;
+}
+.cs_number{
+	font:bold 100px/100% Times;
+	text-align: center;
+}
+.cs_logo{
+	height:112px;
+	width:600px;
+	margin: 0 20px; 
 }
 
-.error{
-	margin: 20px 0;
+#flight_number_1, #flight_number_2{
+	font:bold 150px/100% Times;
+	text-align: center;
 }
 
-.data{
-	border: 1px solid #999999;
-    border-collapse: collapse;
-    margin: 20px 0;
+#destination_1, #destination_2{
+	font:bold 150px/100% Times;
+	text-align: center;
 }
 
-th{
-	background: none repeat scroll 0 0 #DDDDDD;
-	padding: 0 20px;
+#two_fkights_break {
+    border-top: 16px solid #777799;
+    margin: 23px 0 -14px;
 }
-
-.datacell{
- 	 padding: 0 20px;
- 	 border: 1px solid #999999;
- }

@@ -15,13 +15,25 @@ public class FlightClass {
 	
 	@Column
 	private String className;
+	
+	@Column
+	private String classColor;	
 
 	public FlightClass() {
 	}	
 	
-	public FlightClass(String className) {
+	public FlightClass(String className, String classColor) {
 		this.className = className;
+		this.classColor = classColor;
 	}
+	
+	public String getClassColor() {
+		return classColor;
+	}
+
+	public void setClassColor(String classColor) {
+		this.classColor = classColor;
+	}	
 
 	public Long getId() {
 		return id;
