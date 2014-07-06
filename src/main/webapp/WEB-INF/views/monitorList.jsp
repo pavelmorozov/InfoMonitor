@@ -23,9 +23,37 @@
 			<c:if test="${!empty monitorList}">
 				<table class="table table-hover">
 					<tr>
+<<<<<<< HEAD
 						<th>Монитор</th>
 						<th></th>
 						<th>Состояние</th>
+=======
+						<td class = "datacell">
+							<a href="showAJAX?monitorName=${listElement.monitorName}">
+								${listElement.monitorName} 
+							</a>
+						</td>
+						<td>
+							<c:if test="${listElement.monitorInfo['class'].simpleName == 'FlightRegistrationInfo'}">
+								${listElement.monitorInfo.flight.flightNumber}
+								(${listElement.monitorInfo.flight.flightDestination.airPort})
+								${listElement.monitorInfo.flight.flightCompany.name} - 
+								${listElement.monitorInfo.flightClass.className}
+							</c:if>								
+							<c:if test="${listElement.monitorInfo['class'].simpleName == 'ImageInfo'}">
+								${listElement.monitorInfo.imageName}
+							</c:if>
+							<c:if test="${listElement.monitorInfo['class'].simpleName == 'TwoFlightsRegistrationInfo'}">
+								${listElement.monitorInfo.flight1.flightNumber}
+								(${listElement.monitorInfo.flight1.flightDestination.airPort})
+								${listElement.monitorInfo.flight1.flightCompany.name}; 
+
+								${listElement.monitorInfo.flight2.flightNumber}
+								(${listElement.monitorInfo.flight2.flightDestination.airPort})
+								${listElement.monitorInfo.flight2.flightCompany.name}; 
+							</c:if>																
+						</td>							
+>>>>>>> branch 'master' of https://github.com/pavelmorozov/InfoMonitor.git
 					</tr>
 					<c:forEach items="${monitorList}" var="listElement">
 						<tr>
