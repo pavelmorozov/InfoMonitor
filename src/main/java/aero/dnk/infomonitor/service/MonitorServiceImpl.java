@@ -15,7 +15,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
 import aero.dnk.infomonitor.controller.HomeController;
+import aero.dnk.infomonitor.dao.flight.RegularFlightDAO;
+import aero.dnk.infomonitor.dao.monitor.FlightClassDAO;
 import aero.dnk.infomonitor.dao.monitor.MonitorDAO;
+import aero.dnk.infomonitor.domain.flight.RegularFlight;
+import aero.dnk.infomonitor.domain.monitor.FlightClass;
 import aero.dnk.infomonitor.domain.monitor.Monitor;
 import aero.dnk.infomonitor.domain.monitor.MonitorInfo;
 
@@ -26,7 +30,13 @@ public class MonitorServiceImpl implements MonitorService {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);	
 	
 	@Autowired
-	private MonitorDAO monitorDAO;	
+	private MonitorDAO monitorDAO;
+	
+	@Autowired
+	private RegularFlightDAO regularFlightDAO;
+
+	@Autowired
+	private FlightClassDAO flightClassDAO;
 	
 	@Override
 	public ModelAndView list(){
@@ -58,28 +68,23 @@ public class MonitorServiceImpl implements MonitorService {
 	
 	@Override
 	public ModelAndView showAJAX(String monitorName){
-//		Monitor monitor = monitorDAO.get(monitorName);
-//		MonitorInfo monitorInfo = monitor.getMonitorInfo();
-		
 		String viewName;
 		viewName = "MonitorInfo";
 		Map<String, Object> viewInfo = new HashMap<String, Object>();
-//		if (monitorInfo!=null) {
-//			//viewName = monitorInfo.getClass().getSimpleName();
-//			viewInfo.put("monitorInfo", monitorInfo);
-//			logger.info("Service MonitorService show() choose view name: "+
-//					viewName);
-//		}else{
-//			//viewName = "Error";
-//			logger.info("Error: "+ monitorName +" Monitor info not found");			
-//		}
-		
 		viewInfo.put("monitor", monitorName);
-		
 		System.out.println(viewInfo);
 		System.out.println(monitorName);
-		
+		return new ModelAndView(viewName, viewInfo);
+	}
+
+	@Override
+	public ModelAndView getFlights() {
+		String viewName = "flightRegistrationInfoForm";
+		List<RegularFlight> regularFlightList = regularFlightDAO.list();
+		List<FlightClass> classList = flightClassDAO.list();
+		Map<String, Object> viewInfo = new HashMap<String, Object>();
+		viewInfo.put("regularFlightList", regularFlightList);
+		viewInfo.put("classList", classList);
 		return new ModelAndView(viewName, viewInfo);
 	}	
-	
 }

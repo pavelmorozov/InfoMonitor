@@ -10,4 +10,5 @@ public interface MonitorService {
 	public ModelAndView list();
 	public ModelAndView show(String monitorName);
 	public ModelAndView showAJAX(String monitorName);
+	public ModelAndView getFlights();
 }

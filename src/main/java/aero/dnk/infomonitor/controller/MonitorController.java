@@ -53,5 +53,16 @@ public class MonitorController{
 				" to monitor: "+ monitorName);
 		//return monitorService.show(monitorName);
 		return monitorService.showAJAX(monitorName);		
+	}
+
+	
+	/**
+	 * getFlights to populate user form
+	 */
+	@RequestMapping(value = "/monitor/getFlights", method = RequestMethod.GET)
+	public ModelAndView getFlights(HttpServletRequest request) {
+		logger.info("Processing getFlights() request from: "+
+				request.getRemoteAddr());
+		return monitorService.getFlights();		
 	}	
 }
