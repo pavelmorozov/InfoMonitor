@@ -23,11 +23,11 @@
 			<c:if test="${!empty monitorList}">
 				<table class="table table-hover">
 					<tr>
-<<<<<<< HEAD
+
 						<th>Монитор</th>
 						<th></th>
 						<th>Состояние</th>
-=======
+
 						<td class = "datacell">
 							<a href="showAJAX?monitorName=${listElement.monitorName}">
 								${listElement.monitorName} 
@@ -53,7 +53,7 @@
 								${listElement.monitorInfo.flight2.flightCompany.name}; 
 							</c:if>																
 						</td>							
->>>>>>> branch 'master' of https://github.com/pavelmorozov/InfoMonitor.git
+
 					</tr>
 					<c:forEach items="${monitorList}" var="listElement">
 						<tr>
