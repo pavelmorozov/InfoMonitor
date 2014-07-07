@@ -28,37 +28,11 @@
 						<th></th>
 						<th>Состояние</th>
 
-						<td class = "datacell">
-							<a href="showAJAX?monitorName=${listElement.monitorName}">
-								${listElement.monitorName} 
-							</a>
-						</td>
-						<td>
-							<c:if test="${listElement.monitorInfo['class'].simpleName == 'FlightRegistrationInfo'}">
-								${listElement.monitorInfo.flight.flightNumber}
-								(${listElement.monitorInfo.flight.flightDestination.airPort})
-								${listElement.monitorInfo.flight.flightCompany.name} - 
-								${listElement.monitorInfo.flightClass.className}
-							</c:if>								
-							<c:if test="${listElement.monitorInfo['class'].simpleName == 'ImageInfo'}">
-								${listElement.monitorInfo.imageName}
-							</c:if>
-							<c:if test="${listElement.monitorInfo['class'].simpleName == 'TwoFlightsRegistrationInfo'}">
-								${listElement.monitorInfo.flight1.flightNumber}
-								(${listElement.monitorInfo.flight1.flightDestination.airPort})
-								${listElement.monitorInfo.flight1.flightCompany.name}; 
-
-								${listElement.monitorInfo.flight2.flightNumber}
-								(${listElement.monitorInfo.flight2.flightDestination.airPort})
-								${listElement.monitorInfo.flight2.flightCompany.name}; 
-							</c:if>																
-						</td>							
-
 					</tr>
 					<c:forEach items="${monitorList}" var="listElement">
 						<tr>
 							<td>
-								<a href="showAJAX?monitorName=${listElement.monitorName}">
+								<a href="${contextPath}/monitor/showAJAX?monitorName=${listElement.monitorName}">
 									${listElement.monitorName} 
 								</a>
 							</td>
@@ -67,7 +41,7 @@
 									<i class="icon-pencil"></i>  
 								</a>
 							</td>						
-							<td>
+							<td id="${listElement.monitorName}">
 								<c:if test="${listElement.monitorInfo.class.simpleName == 'FlightRegistrationInfo'}">
 									${listElement.monitorInfo.flight.flightNumber}
 									(${listElement.monitorInfo.flight.flightDestination.airPort})
@@ -134,7 +108,6 @@
 				</div>
 				<div class="modal-footer">
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-					<button class="btn btn-primary">Save changes</button>
 				</div>
 			</div>
 

@@ -10,6 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<a href="<c:url value="/monitor/list" />">monitor -> list</a>
+<a href="<c:url value="/user/listMonitors" />">monitor -> list</a>
 </body>
 </html>

@@ -10,7 +10,7 @@
 			<c:if test="${!empty regularFlightList}">
 				<c:forEach items="${regularFlightList}" 
 					var="listElement"  varStatus="status">
-						<option value="${listElement.flightNumber}">
+						<option value="${listElement.id}">
 							${listElement.flightNumber} ${listElement.flightDestination.airPort}
 						</option>				
 				</c:forEach>
@@ -28,6 +28,6 @@
 			</c:if>
 		</select>
 		<label>Для отображения информации нажмите "Обновить"</label>
-	    <button type="submit" class="btn">Обновить</button>
+	    <button type="submit" class="btn"  id="FlightRegistrationInfoFormBtn">Обновить</button>
     </fieldset>
 </form>

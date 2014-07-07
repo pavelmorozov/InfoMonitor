@@ -25,14 +25,6 @@ public class MonitorController{
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	/**
-	 * Lists monitors.
-	 */	
-	@RequestMapping(value = "/monitor/list", method = RequestMethod.GET)
-	public ModelAndView monitorList() {
-		return monitorService.list();
-	}
-
-	/**
 	 * Takes from monitor its name and pass to service. Returns 
 	 * html view for MonitorInfo 
 	 */
@@ -54,15 +46,4 @@ public class MonitorController{
 		//return monitorService.show(monitorName);
 		return monitorService.showAJAX(monitorName);		
 	}
-
-	
-	/**
-	 * getFlights to populate user form
-	 */
-	@RequestMapping(value = "/monitor/getFlights", method = RequestMethod.GET)
-	public ModelAndView getFlights(HttpServletRequest request) {
-		logger.info("Processing getFlights() request from: "+
-				request.getRemoteAddr());
-		return monitorService.getFlights();		
-	}	
 }
