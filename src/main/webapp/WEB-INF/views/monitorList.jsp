@@ -23,18 +23,17 @@
 			<c:if test="${!empty monitorList}">
 				<table class="table table-hover">
 					<tr>
-
 						<th>Монитор</th>
 						<th></th>
 						<th>Состояние</th>
-
 					</tr>
 					<c:forEach items="${monitorList}" var="listElement">
 						<tr>
 							<td>
-								<a href="${contextPath}/monitor/showAJAX?monitorName=${listElement.monitorName}">
+								<a href="${contextPath}/monitor/showAJAX?monitorName=${listElement.monitorName}" class = "hidden">
 									${listElement.monitorName} 
 								</a>
+								${listElement.monitorName}
 							</td>
 							<td>
 								<a href="#changeInfo" role="button" class="btn" data-monitor="${listElement.monitorName}">
@@ -49,7 +48,7 @@
 									${listElement.monitorInfo.flightClass.className}
 								</c:if>								
 								<c:if test="${listElement.monitorInfo.class.simpleName == 'ImageInfo'}">
-									${listElement.monitorInfo.imageName}
+									${listElement.monitorInfo.image.imageName}
 								</c:if>
 								<c:if test="${listElement.monitorInfo.class.simpleName == 'TwoFlightsRegistrationInfo'}">
 									${listElement.monitorInfo.flight1.flightNumber}
@@ -83,28 +82,6 @@
 					</select>
 					<div id="updateInfoForm">
 					</div>				    					
-<!-- 				    <form id='TwoFlightsRegistrationInfoForm' class='updateForm'>
-					    <fieldset>
-						    <legend>Два рейса</legend>
-					    </fieldset>
-				    </form>
-					<form id='ImageInfoForm' class='updateForm'>
-					    <fieldset>
-						    <legend>Изображение</legend>
-					    </fieldset>
-				    </form>
- -->					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-					
-				
 				</div>
 				<div class="modal-footer">
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>

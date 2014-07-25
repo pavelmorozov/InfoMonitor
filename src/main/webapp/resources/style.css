@@ -1,4 +1,4 @@
-html, body {
+html, body, #monitorInfo {
 	overflow:hidden;
 	border-bottom: 1px solid #dddddd;
 	color:#555555;
@@ -67,4 +67,9 @@ html, body {
 #two_fkights_break {
     border-top: 16px solid #777799;
     margin: 23px 0 -14px;
+}
+
+#imageInfo{
+	height:100%;
+	width:100%;
 }

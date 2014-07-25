@@ -14,8 +14,8 @@ import aero.dnk.infomonitor.domain.monitor.MonitorInfo;
 public class MonitorInfoDAOImpl implements MonitorInfoDAO {
 
 	@Autowired
-	private SessionFactory sessionFactory;	
-	
+	private SessionFactory sessionFactory;
+
 	@Override
 	public void save(MonitorInfo monitorInfo) throws DataAccessException {
 		sessionFactory.getCurrentSession().save(monitorInfo);
@@ -42,5 +42,27 @@ public class MonitorInfoDAOImpl implements MonitorInfoDAO {
 				createQuery("from MonitorInfo").list();
 		return list;
 	}
+
+	@Override
+	public void update(MonitorInfo monitorInfo) throws DataAccessException {
+		//delete MonitorInfo with id passed
+		Monitor monitor = (Monitor) sessionFactory
+				.getCurrentSession().get(Monitor.class, monitorInfo.getId());
+		monitor.setMonitorInfo(null);
+		
+		MonitorInfo monitorInfoPersisted = (MonitorInfo) sessionFactory
+				.getCurrentSession().get(MonitorInfo.class, monitorInfo.getId());
+		
+		if (monitorInfoPersisted != null){
+			sessionFactory.getCurrentSession().delete(monitorInfoPersisted);
+		}
+		
+		//save MonitorInfo
+		sessionFactory.getCurrentSession().save(monitorInfo);
+		monitor.setMonitorInfo(monitorInfo);
+		sessionFactory.getCurrentSession().save(monitor);
+	}
+	
+	
 
 }

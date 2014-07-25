@@ -30,7 +30,7 @@ public class FlightClassDAOImpl implements FlightClassDAO {
 	@Override
 	public FlightClass get(Long id) throws DataAccessException {
 		FlightClass flightClass = (FlightClass) sessionFactory
-				.getCurrentSession().get(FlightClass.class, id);
+			.getCurrentSession().get(FlightClass.class, id);
 		return flightClass;
 	}
 
@@ -38,8 +38,8 @@ public class FlightClassDAOImpl implements FlightClassDAO {
 	public List<FlightClass> list() throws DataAccessException {
 		@SuppressWarnings("unchecked")
 		List <FlightClass> list = (List <FlightClass>) sessionFactory.getCurrentSession().
-				createQuery("from FlightClass").list();
-				return list;
+			createQuery("from FlightClass").list();
+		return list;
 	}
 
 }

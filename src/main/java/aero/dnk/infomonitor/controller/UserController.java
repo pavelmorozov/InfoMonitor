@@ -22,7 +22,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	/**
 	 * Lists monitors.
@@ -33,9 +33,9 @@ public class UserController {
 	}
 
 	/**
-	 * Get data to populate user form.
+	 * Get data to populate user form fillFlightRegistrationInfoForm.
 	 */
-	@RequestMapping(value = "/user/fillFlightRegistrationInfoForm", method = RequestMethod.GET)
+	@RequestMapping(value = "/user/FlightRegistrationInfo", method = RequestMethod.GET)
 	public ModelAndView getFlights(HttpServletRequest request) {
 		logger.info("Processing getFlights() request from: "+
 				request.getRemoteAddr());
@@ -43,7 +43,7 @@ public class UserController {
 	}
 	
 	/**
-	 * Update monitor with user data send.
+	 * Update monitor with user data send setFlightRegistrationInfo.
 	 */	
 	@RequestMapping(value = "/user/setFlightRegistrationInfo",  produces = "text/html; charset=UTF-8")
 	@ResponseBody
@@ -55,19 +55,49 @@ public class UserController {
 		return response;
 	}
 	
-//	@RequestMapping(value = "/" + ADMINPAGE + "/fillUserAccount",  produces = "text/html; charset=UTF-8")
-//	@ResponseBody
-//	public String fillUserAccount (
-//			@RequestParam(value = "account") String accountId,
-//			@RequestParam(value = "amount") String amount
-//			) throws Exception{
-//		String balance = adminService.fillUserAccount( accountId, amount);
-//		String response = "{\"text\":\"Пополнение на сумму: "
-//				+amount+" выполнено успешно\",\"balance\":\""+
-//				balance+"\"}";
-//		return response;
-//	}
-	
-	
-	
+		
+	/**
+	 * Get data to populate user form fillTwoFlightsRegistrationInfoForm.
+	 */
+	@RequestMapping(value = "/user/TwoFlightsRegistrationInfo", method = RequestMethod.GET)
+	public ModelAndView getTwoFlights(HttpServletRequest request) {
+		logger.info("Processing getTwoFlights() request from: "+
+				request.getRemoteAddr());
+		return userService.fillTwoFlightsRegistrationInfoForm();		
+	}
+
+	/**
+	 * Update monitor with user data send setTwoFlightsRegistrationInfo.
+	 */	
+	@RequestMapping(value = "/user/setTwoFlightsRegistrationInfo",  produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String setTwoFlightsRegistrationInfo (
+			@RequestParam(value = "monitor") String monitor,
+			@RequestParam(value = "flight1") String flight1,
+			@RequestParam(value = "flight2") String flight2){
+		String response = userService.setTwoFlightsRegistrationInfo(monitor,flight1,flight2);
+		return response;
+	}
+		
+	/**
+	 * Get data to populate user form fillImageInfoForm.
+	 */
+	@RequestMapping(value = "/user/ImageInfo", method = RequestMethod.GET)
+	public ModelAndView getImageInfo(HttpServletRequest request) {
+		logger.info("Processing getImageInfo() request from: "+
+				request.getRemoteAddr());
+		return userService.fillImageInfoForm();		
+	}
+
+	/**
+	 * Update monitor with user data send setTwoFlightsRegistrationInfo.
+	 */	
+	@RequestMapping(value = "/user/setImageInfo",  produces = "text/html; charset=UTF-8")
+	@ResponseBody
+	public String setImageInfo(
+			@RequestParam(value = "monitor") String monitor,
+			@RequestParam(value = "image") String image){
+		String response = userService.setImageInfo(monitor, image);
+		return response;
+	}
 }

@@ -14,17 +14,22 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import aero.dnk.infomonitor.dao.media.ImageDAO;
+import aero.dnk.infomonitor.domain.media.Image;
 import aero.dnk.infomonitor.domain.monitor.ImageInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/META-INF/spring/root-context.xml")
 public class ImageInfoDAOTest {
 	private static final String IMAGE_NAME = "First image";
-	private static final String IMAGE_PATH = "/abc/def.gif";
+	private static final String IMAGE_PATH = "def.gif";
 	private static final String MONITOR_ID = "first monitor";
 	
 	@Autowired
 	private ImageInfoDAO imageInfoDAO;
+
+	@Autowired
+	private ImageDAO imageDAO;
 	
 	@Autowired
     SessionFactory sessionFactory;
@@ -42,7 +47,10 @@ public class ImageInfoDAOTest {
 		assertEquals("First check database have no test record", entityList.isEmpty(),true);
 
 		// Save record
-		ImageInfo imageInfo = new ImageInfo(MONITOR_ID, IMAGE_NAME, IMAGE_PATH); 
+		Image image = new Image(IMAGE_NAME, IMAGE_PATH);
+		imageDAO.save(image);
+		
+		ImageInfo imageInfo = new ImageInfo(MONITOR_ID, image);
 		imageInfoDAO.save(imageInfo);
 		
 		// Check database have at least one test record
@@ -52,8 +60,8 @@ public class ImageInfoDAOTest {
 		
 		// Check record
 	    System.out.println(imageInfo.getId()+" "
-	    		+imageInfo.getImageName()+" "
-	    		+imageInfo.getImagePath());
+	    		+imageInfo.getImage().getImageName()+" "
+	    		+imageInfo.getImage().getImageFile());
 
 		// Get record
 	    assertNotNull(imageInfoDAO.get(MONITOR_ID));

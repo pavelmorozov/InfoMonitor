@@ -22,7 +22,7 @@ public class MonitorController{
 	@Autowired
 	private MonitorService monitorService;
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	private static final Logger logger = LoggerFactory.getLogger(MonitorController.class);
 	
 	/**
 	 * Takes from monitor its name and pass to service. Returns 

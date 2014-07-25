@@ -1,11 +1,8 @@
 package aero.dnk.infomonitor.service;
 
-import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -14,7 +11,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
 
-import aero.dnk.infomonitor.controller.HomeController;
 import aero.dnk.infomonitor.dao.flight.RegularFlightDAO;
 import aero.dnk.infomonitor.dao.monitor.FlightClassDAO;
 import aero.dnk.infomonitor.dao.monitor.MonitorDAO;
@@ -27,7 +23,7 @@ import aero.dnk.infomonitor.domain.monitor.MonitorInfo;
 @Transactional
 public class MonitorServiceImpl implements MonitorService {
 	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);	
+	private static final Logger logger = LoggerFactory.getLogger(MonitorServiceImpl.class);	
 	
 	@Autowired
 	private MonitorDAO monitorDAO;

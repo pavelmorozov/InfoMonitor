@@ -12,4 +12,5 @@ public interface MonitorInfoDAO {
 	MonitorInfo get(String id) throws DataAccessException;
 	public List <MonitorInfo> list()
 		throws DataAccessException;
+	void update(MonitorInfo monitorInfo) throws DataAccessException;
 }

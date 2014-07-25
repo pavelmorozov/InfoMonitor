@@ -4,40 +4,31 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import aero.dnk.infomonitor.domain.flight.RegularFlight;
+import aero.dnk.infomonitor.domain.media.Image;
 
 @Entity
 @Table
 public class ImageInfo extends MonitorInfo {
-	@Column
-	private String imageName;
-	
-	@Column
-	private String imagePath;
+	@OneToOne()
+	private Image image;
 
-	public ImageInfo(){}
+	public ImageInfo() {
+	}	
 	
-	public ImageInfo(String id, String imageName, String imagePath) {
+	public ImageInfo(String id, Image image) {
 		super(id);
-		this.imageName = imageName;
-		this.imagePath = imagePath;
+		this.image = image;
 	}
 
-	public String getImageName() {
-		return imageName;
+	public Image getImage() {
+		return image;
 	}
 
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
-	}
-
-	public String getImagePath() {
-		return imagePath;
-	}
-
-	public void setImagePath(String imagePath) {
-		this.imagePath = imagePath;
+	public void setImage(Image image) {
+		this.image = image;
 	}
 }

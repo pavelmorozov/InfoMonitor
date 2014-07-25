@@ -1,8 +1,12 @@
 html, body {
-/*	color:#555555;
-	height:100%;*/
+	background-color: #ECFAF0;
 }
 
 .updateForm{
 	/*display:none;*/
 }
+
+.hidden{
+	display: none;
+}
+

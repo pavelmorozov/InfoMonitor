@@ -13,46 +13,27 @@ $(document).ready(function() {
     });
 
     $('#monitorInfoClass').change(function(){
-    	//alert($("#monitorInfoClass :selected").val());
-    	if ($("#monitorInfoClass :selected").val()=='empty'){
-    		 $('.updateForm').css('display','none');
-    	};
-    	if ($("#monitorInfoClass :selected").val()=='FlightRegistrationInfo'){
-    		fillFlightRegistrationInfoForm();
-    	};
-    	if ($("#monitorInfoClass :selected").val()=='TwoFlightsRegistrationInfo'){
-    		$('.updateForm').css('display','none');
-    		$('#TwoFlightsRegistrationInfoForm').css('display','block');
-    	};    		 
-    	if ($("#monitorInfoClass :selected").val()=='ImageInfo'){
-    		$('.updateForm').css('display','none');
-    		$('#ImageInfoForm').css('display','block');
-    	};    			 
-
+    	var populateForm = $("#monitorInfoClass :selected").val();
+    	fillMonitorInfoForm(populateForm);
     });    	            
-    
-//    var autoRefresh = setInterval(function(){
-//    		console.log('autoRefresh, AJAX()');
-//    		AJAX();
-//    	},1000)
 });
 
-function fillFlightRegistrationInfoForm(){
-	console.log('fillFlightRegistrationInfoForm()');
+function fillMonitorInfoForm(mode){
+	if (mode == 'empty'){
+		$('.updateForm').html('');
+		return;
+	}
 	a = $.ajax({
-		url     : "fillFlightRegistrationInfoForm",
+		url     : mode,
 		dataType: 'html',
 		success : function(response){
-			console.log('populate form');
 			$('#updateInfoForm').html(response);
-		    ////////////////////////////////////////////////////////////
-			$('#FlightRegistrationInfoForm').submit(function(event) {
-				flightRegistrationInfoAJAX();
+			$('.updateForm').submit(function(event) {
+				var mode = $("#monitorInfoClass :selected").val();
+				ChangeMonitorInfoAjax(mode);
+				$('#monitorChangeData').modal('hide');
 				event.preventDefault();
 			});    
-		    ////////////////////////////////////////////////////////////
-    		$('.updateForm').css('display','none');
-    		$('#FlightRegistrationInfoForm').css('display','block');			
 		},
 		error   : function (response,status,e){
 			console.log('error: '+e);
@@ -62,36 +43,39 @@ function fillFlightRegistrationInfoForm(){
 	});
 };
 
-function flightRegistrationInfoAJAX(){
-	console.log('flightRegistrationInfoAJAX()');
+function ChangeMonitorInfoAjax(mode){
 	var monitor = $('#monitorChangeName').text();
-	var flightNumber = $('#flight').val();
-	var flightClass = $('#flightClass').val();
-	a = $.ajax({
-		url     : "setFlightRegistrationInfo",
-		dataType: 'json',
-		data    : "monitor=" + monitor + 
+	var requestData;
+	if (mode == 'FlightRegistrationInfo'){
+		var flightNumber = $('#flight').val();
+		var flightClass = $('#flightClass').val();
+		requestData = "monitor=" + monitor + 
 			"&flightNumber=" + flightNumber +
-			"&flightClass="	 + flightClass,
+			"&flightClass="	 + flightClass;
+	}else if (mode == 'TwoFlightsRegistrationInfo'){
+		var flight1 = $('#flight1').val();
+		var flight2 = $('#flight2').val();
+		requestData = "monitor=" + monitor + 
+			"&flight1=" + flight1 +
+			"&flight2="	 + flight2;
+	}else if (mode == 'ImageInfo'){
+		var image = $('#image').val();
+		requestData = "monitor=" + monitor + 
+		"&image=" + image;		
+	}else{
+		console.log('Unknown mode '+response.monitor);
+	}	
+	a = $.ajax({
+		url     : "set"+mode,
+		dataType: 'json',
+		data    : requestData,
 		success : function(response){
-			console.log('Update flightRegistrationInfo'+response.monitor);
-			$('#'+response.monitor).text(response.flightNumber+' ('+
-					response.destination+') '+
-					response.company+' - '+
-					response.flightClass);
-			
-//			$('#fillResult').text(response.text);
-//			$("#balance-"+account).text(response.balance);			
-//			
-//			console.log('Update flights list');
-//			$('#updateInfoForm').html(response);
-//    		$('.updateForm').css('display','none');
-//    		$('#FlightRegistrationInfoForm').css('display','block');			
+			console.log('Update' + +response.monitor);
+			$('#'+response.monitor).text(response.MonitorInfoString);
 		},
 		error   : function (response,status,e){
-			console.log('error: '+e);
-			console.log('response: '+response);
-			console.log('status: '+status);
+			console.log('error: '+e+'status: '+status+ 'response: '+response);
 		}
-	});
+	});	
 };
+
