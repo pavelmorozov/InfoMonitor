@@ -29,31 +29,26 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	-->
 	
 	<intercept-url pattern="/login*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+	<intercept-url pattern="/resources/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+	<intercept-url pattern="/monitor/**" access="IS_AUTHENTICATED_ANONYMOUSLY" />
 	<intercept-url pattern="/**" access="ROLE_USER" />
 	<form-login login-page='/login'
-		default-target-url="/"
+		default-target-url="/user/listMonitors"
+		authentication-failure-url="/login?error=true"
 		/>
 	<logout logout-url="/logout" logout-success-url="/login" />		
-	  
-
 </http>
-
-
 
 <authentication-manager alias="authenticationManager">
 	<authentication-provider>
 		<password-encoder hash="md5"/>
 		<user-service>
 			<user name="user" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
+			<user name="inquiry" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
+			<user name="support" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
+			<user name="admin" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
 		</user-service>
 	</authentication-provider>
 </authentication-manager>
 
-
-
-
-           
-
-           
-           
 </beans:beans>

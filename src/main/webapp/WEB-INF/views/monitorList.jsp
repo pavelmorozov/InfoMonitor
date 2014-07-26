@@ -18,7 +18,7 @@
 	</head>
 	<body>
 		<div class ="container"/>
-			<h1  class="text-center">Международный аэропорт Днепропетровск</h1>
+			<h1  class="text-center airport">Международный аэропорт Днепропетровск</h1>
 			<h2  class="text-center">Управление мониторами</h2>
 			<c:if test="${!empty monitorList}">
 				<table class="table table-hover">
@@ -45,10 +45,10 @@
 									${listElement.monitorInfo.flight.flightNumber}
 									(${listElement.monitorInfo.flight.flightDestination.airPort})
 									${listElement.monitorInfo.flight.flightCompany.name} - 
-									${listElement.monitorInfo.flightClass.className}
+									${listElement.monitorInfo.flightClass.className};
 								</c:if>								
 								<c:if test="${listElement.monitorInfo.class.simpleName == 'ImageInfo'}">
-									${listElement.monitorInfo.image.imageName}
+									${listElement.monitorInfo.image.imageName};
 								</c:if>
 								<c:if test="${listElement.monitorInfo.class.simpleName == 'TwoFlightsRegistrationInfo'}">
 									${listElement.monitorInfo.flight1.flightNumber}
@@ -87,8 +87,12 @@
 					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 				</div>
 			</div>
-
-
+			<p>
+				${loginName}, для выхода нажмите
+				<a href="${contextPath}/logout">
+					logout
+				</a>
+			</p>
 		</div>
 	</body>
 </html>

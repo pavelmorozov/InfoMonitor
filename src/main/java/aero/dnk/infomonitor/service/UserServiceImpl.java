@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.servlet.ModelAndView;
@@ -49,6 +51,9 @@ public class UserServiceImpl implements UserService {
 		List<Monitor> monitorList = monitorDAO.list();
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("monitorList", monitorList);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		String loginName = auth.getName();
+		map.put("loginName", loginName);
 		return new ModelAndView("monitorList", map);
 	}
 

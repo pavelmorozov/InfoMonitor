@@ -25,6 +25,14 @@ public class UserController {
 	private static final Logger logger = LoggerFactory.getLogger(UserController.class);
 	
 	/**
+	 * Map default page.
+	 */	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home() {
+		return "redirect:/user/listMonitors";
+	}	
+	
+	/**
 	 * Lists monitors.
 	 */	
 	@RequestMapping(value = "/user/listMonitors", method = RequestMethod.GET)
