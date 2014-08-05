@@ -29,9 +29,18 @@ html, body, #monitorInfo {
 	text-align: center;
 }
 
-#destination, #destination_1, #destination_2{
+/*#destination, #destination_1, #destination_2{
 	font:bold 170px/100% Times;
 	text-align: center;
+}*/
+
+.destination_string{
+	font:bold 170px/120% Times;
+	text-align: center;	
+}
+
+.carousel{
+	margin-bottom: 0px;
 }
 
 #class{
@@ -60,7 +69,7 @@ html, body, #monitorInfo {
 }
 
 #destination_1, #destination_2{
-	font:bold 150px/100% Times;
+	font:bold 150px/110% Times;
 	text-align: center;
 }
 

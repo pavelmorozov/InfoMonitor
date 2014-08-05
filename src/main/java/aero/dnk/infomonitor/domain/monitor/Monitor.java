@@ -19,7 +19,7 @@ public class Monitor {
 	}
 	
 	public Monitor(String monitorName, MonitorInfo monitorInfo) {
-		monitorName = monitorName;
+		this.monitorName = monitorName;
 		this.monitorInfo = monitorInfo;
 	}
 
@@ -28,7 +28,7 @@ public class Monitor {
 	}
 
 	public void setMonitorName(String monitorName) {
-		monitorName = monitorName;
+		this.monitorName = monitorName;
 	}
 
 	public MonitorInfo getMonitorInfo() {

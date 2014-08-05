@@ -13,7 +13,7 @@
 		<div class="carousel-inner">
 			<c:forEach items="${monitorInfo.flight.flightDestination.destinationMultiLanguage}" 
 				var="listElement"  varStatus="status">
-					<div class="item
+					<div class="item destination_string
 					<c:if test="${status.index==0}"> active</c:if>">
 						${listElement.airPortMultiLanguage} (${monitorInfo.flight.flightDestination.airPort})
 					</div>

@@ -19,12 +19,14 @@ import aero.dnk.infomonitor.domain.flight.RegularFlight;
 import aero.dnk.infomonitor.domain.monitor.FlightClass;
 import aero.dnk.infomonitor.domain.monitor.FlightRegistrationInfo;
 import aero.dnk.infomonitor.domain.monitor.Monitor;
+import aero.dnk.infomonitor.domain.monitor.MonitorInfo;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:/META-INF/spring/root-context.xml")
 public class MonitorDAOTest {
 	private static final String FLIGHT_NUMBER = "TestFlight_777";
 	private static final String BUSINESS_CLASS_NAME = "Buss class";
+	private static final String BUSINESS_CLASS_COLOR = "777777";
 	private static final String MONITOR_ID = "first monitor";
 	
 	@Autowired
@@ -35,6 +37,8 @@ public class MonitorDAOTest {
 	private FlightRegistrationInfoDAO flightRegistrationInfoDAO;
 	@Autowired	
 	private MonitorDAO monitorDAO;
+//	@Autowired	
+//	private MonitorInfoDAO monitorInfoDAO;
 	
 	@Autowired
     SessionFactory sessionFactory;
@@ -52,7 +56,7 @@ public class MonitorDAOTest {
 		assertEquals("First check database have no test record", entityList.isEmpty(),true);
 
 		// Save record
-		FlightClass flightClass = new FlightClass(BUSINESS_CLASS_NAME);
+		FlightClass flightClass = new FlightClass(BUSINESS_CLASS_NAME, BUSINESS_CLASS_COLOR);
 		flightClassDAO.save(flightClass);		
 		
 		RegularFlight regularFlight = new RegularFlight(null,FLIGHT_NUMBER,null);
@@ -60,7 +64,7 @@ public class MonitorDAOTest {
 		
 		FlightRegistrationInfo flightRegistrationInfo = new FlightRegistrationInfo(MONITOR_ID, regularFlight, flightClass); 
 		flightRegistrationInfoDAO.save(flightRegistrationInfo);
-
+		
 		Monitor monitor = new Monitor(MONITOR_ID, flightRegistrationInfo);
 		monitorDAO.save(monitor);
 		

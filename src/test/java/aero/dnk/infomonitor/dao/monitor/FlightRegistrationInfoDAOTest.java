@@ -35,6 +35,7 @@ import aero.dnk.infomonitor.domain.monitor.MonitorInfo;
 public class FlightRegistrationInfoDAOTest {
 	private static final String FLIGHT_NUMBER = "TestFlight_777";
 	private static final String BUSINESS_CLASS_NAME = "Buss class";
+	private static final String BUSINESS_CLASS_COLOR = "777777";
 	private static final String MONITOR_ID = "first monitor";
 	
 	@Autowired
@@ -60,7 +61,7 @@ public class FlightRegistrationInfoDAOTest {
 		assertEquals("First check database have no test record", entityList.isEmpty(),true);
 
 		// Save record
-		FlightClass flightClass = new FlightClass(BUSINESS_CLASS_NAME);
+		FlightClass flightClass = new FlightClass(BUSINESS_CLASS_NAME,BUSINESS_CLASS_COLOR);// FlightClass(BUSINESS_CLASS_NAME);
 		flightClassDAO.save(flightClass);		
 		
 		RegularFlight regularFlight = new RegularFlight(null,FLIGHT_NUMBER,null);
