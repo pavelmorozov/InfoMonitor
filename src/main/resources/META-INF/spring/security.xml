@@ -43,10 +43,10 @@ http://www.springframework.org/schema/security/spring-security.xsd">
 	<authentication-provider>
 		<password-encoder hash="md5"/>
 		<user-service>
-			<user name="user" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
-			<user name="inquiry" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
-			<user name="support" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
-			<user name="admin" password="7a15f0f1544a3a82881673f0bd8a8173" authorities="ROLE_USER" />
+			<user name="user" password="99bcfff5162fd4c88de320e95c2718eb" authorities="ROLE_USER" />
+			<user name="inquiry" password="e72128120526b2c981e5f8007f9b3347" authorities="ROLE_USER" />
+			<user name="support" password="d3fd2ff5f11f05368aa12c23474cdf87" authorities="ROLE_USER" />
+			<user name="admin" password="df652dd395a815ffbb41ce9816142f2e" authorities="ROLE_USER" />
 		</user-service>
 	</authentication-provider>
 </authentication-manager>

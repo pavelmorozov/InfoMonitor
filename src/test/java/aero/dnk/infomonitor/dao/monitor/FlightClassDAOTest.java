@@ -23,7 +23,9 @@ import aero.dnk.infomonitor.domain.monitor.FlightClass;
 @ContextConfiguration("classpath:/META-INF/spring/root-context.xml")
 public class FlightClassDAOTest {
 	private static final String BUSINESS_CLASS_NAME = "Buss class";
+	private static final String BUSINESS_CLASS_COLOR = "777777";
 	private static final String ECONOMY_CLASS_NAME = "Eco class";
+	private static final String ECONOMY_CLASS_COLOR = "555555";
 	
 	@Autowired
 	private FlightClassDAO flightClassDAO;
@@ -43,7 +45,7 @@ public class FlightClassDAOTest {
 		assertEquals("First check database have no test record", entityList.isEmpty(),true);
 
 		// Save record
-		FlightClass flightClass = new FlightClass(BUSINESS_CLASS_NAME);
+		FlightClass flightClass = new FlightClass(BUSINESS_CLASS_NAME, BUSINESS_CLASS_COLOR);
 		flightClassDAO.save(flightClass);
 		
 		// Check database have at least one test record
@@ -52,7 +54,7 @@ public class FlightClassDAOTest {
 		assertEquals("Check database have at least one test record",entityList.isEmpty(),false);
 		
 		// Check List
-		flightClass = new FlightClass(ECONOMY_CLASS_NAME);
+		flightClass = new FlightClass(ECONOMY_CLASS_NAME, ECONOMY_CLASS_COLOR);
 		flightClassDAO.save(flightClass);
 		
 		entityList = flightClassDAO.list();

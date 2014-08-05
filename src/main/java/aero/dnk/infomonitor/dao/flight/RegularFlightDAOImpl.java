@@ -44,7 +44,7 @@ public class RegularFlightDAOImpl implements RegularFlightDAO {
 		throws DataAccessException{
 		@SuppressWarnings("unchecked")
 		List <RegularFlight> list = (List <RegularFlight>) sessionFactory.getCurrentSession().
-				createQuery("from RegularFlight").list();
+				createQuery("from RegularFlight order by flightNumber").list();
 				return list;
 	}
 	

@@ -41,16 +41,16 @@
 								</a>
 							</td>						
 							<td id="${listElement.monitorName}">
-								<c:if test="${listElement.monitorInfo.class.simpleName == 'FlightRegistrationInfo'}">
+								<c:if test="${listElement.monitorInfo['class'].simpleName == 'FlightRegistrationInfo'}">
 									${listElement.monitorInfo.flight.flightNumber}
 									(${listElement.monitorInfo.flight.flightDestination.airPort})
 									${listElement.monitorInfo.flight.flightCompany.name} - 
 									${listElement.monitorInfo.flightClass.className};
 								</c:if>								
-								<c:if test="${listElement.monitorInfo.class.simpleName == 'ImageInfo'}">
+								<c:if test="${listElement.monitorInfo['class'].simpleName == 'ImageInfo'}">
 									${listElement.monitorInfo.image.imageName};
 								</c:if>
-								<c:if test="${listElement.monitorInfo.class.simpleName == 'TwoFlightsRegistrationInfo'}">
+								<c:if test="${listElement.monitorInfo['class'].simpleName == 'TwoFlightsRegistrationInfo'}">
 									${listElement.monitorInfo.flight1.flightNumber}
 									(${listElement.monitorInfo.flight1.flightDestination.airPort})
 									${listElement.monitorInfo.flight1.flightCompany.name}; 

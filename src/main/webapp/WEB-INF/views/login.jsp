@@ -36,8 +36,6 @@ pageEncoding="utf-8"%>
 						</td>
 					</tr>
 				</table>
-				user<br>
-				erdqX3Es
 			</form>
 		</div>			
 	</body>
