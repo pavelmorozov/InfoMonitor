@@ -18,6 +18,12 @@
 	</head>
 	<body>
 		<div class ="container"/>
+			<p>
+				${loginName}, для выхода нажмите
+				<a href="${contextPath}/logout">
+					logout
+				</a>
+			</p>
 			<h1  class="text-center airport">Международный аэропорт Днепропетровск</h1>
 			<h2  class="text-center">Управление мониторами</h2>
 			<c:if test="${!empty monitorList}">
@@ -82,17 +88,11 @@
 					</select>
 					<div id="updateInfoForm">
 					</div>				    					
-				</div>
-				<div class="modal-footer">
-					<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					<!--<div class="modal-footer">
+						<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+					</div>-->
 				</div>
 			</div>
-			<p>
-				${loginName}, для выхода нажмите
-				<a href="${contextPath}/logout">
-					logout
-				</a>
-			</p>
 		</div>
 	</body>
 </html>

@@ -27,8 +27,10 @@
 				</c:forEach>
 			</c:if>
 		</select>
-		
 		<label>Для отображения информации нажмите "Обновить"</label>
-	    <button type="submit" class="btn"  id="TwoFlightRegistrationInfoFormBtn">Обновить</button>
+	   	<div class="modal-footer">
+	    	<button type="submit" class="btn"  id="TwoFlightRegistrationInfoFormBtn">Обновить</button>
+			<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		</div>
     </fieldset>
 </form>
