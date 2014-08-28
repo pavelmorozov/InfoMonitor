@@ -22,7 +22,7 @@ pageEncoding="utf-8"%>
 			<c:if test="${not empty param.error}">
 				<p class="text-error"> Ошибка входа. Неверное имя пользователя или пароль.</p>
 			</c:if>
-			<form method="POST" action="<c:url value="/j_spring_security_check" />">
+			<form id = "loginForm" method="POST" action="<c:url value="/j_spring_security_check" />">
 				<table>
 					<tr>
 						<td><input type="text" class="input-medium" placeholder="Имя пользователя" name="j_username" /></td>
